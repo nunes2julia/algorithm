@@ -50,6 +50,14 @@ def max_diff(numbers):
     print("result:", result)
     print("time:", round(end_time - start_time, 2), "s")
 
-    
+    # Analise de algoritmos
+
+    def count_even(numbers):
+        result = 0 
+        for x in numbers:
+            if x % 2 == 0:
+                result += 1
+                return result
+                
 
 
