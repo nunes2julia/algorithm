@@ -58,6 +58,6 @@ def max_diff(numbers):
             if x % 2 == 0:
                 result += 1
                 return result
-                
 
+# complexidade de tempo dos loops
 
