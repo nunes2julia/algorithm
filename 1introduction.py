@@ -61,3 +61,41 @@ def max_diff(numbers):
 
 # complexidade de tempo dos loops
 
+
+#algoritmos O(1):
+
+def middle(numbers):
+    n = len(numbers):
+    return numbers[n // 2]
+
+
+#  single Loop 
+# O(n):
+
+def calc_sum(numbers):
+    result = 0 
+    for x in numbers:
+        result += x
+    return result
+
+# Nested loops 
+# O(n²)
+
+ def has_sum(numbers, x):
+    for a in numbers:
+        for b in numbers:
+            if a + b == x:
+                return True
+    return False
+
+
+#Sequantial code segments
+# O(n)
+
+def count_min(numbers):
+    #stage 1 
+    min_value = numbers[0]
+    for x in numbers:
+        if x == min_value:
+            result += 1
+    return result
