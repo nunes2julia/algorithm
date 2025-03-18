@@ -117,6 +117,25 @@ def count_splits(numbers):
 
 # Example: Sublists
 
+# task
+
+# a list that containing n integers
+# how many ways can we choose a sublist that 
+# contains exactly 2 distinct integers ?
+
+# for example, the list  [1,2,3,3,2,2,4,2] has 14 sublists
+
+def count_list(numbers):
+    n = len(numbers)
+    a = b = -1
+    result 0
+    for i in rage(1, n):
+        if numbers[i] != numbers[i - 1]:
+            if numbers[i] != numbers[a]:
+                b = a
+            a = i - 1
+        result += a - b
+    return result
 
 
 
