@@ -168,5 +168,75 @@ choices for the most frequent number.
 For example, when the list is [1,2,3,2,2,3,2,2], the desired answer is 2.
 
 def find_mode(numbers):
+    count = {}
+    mode = numbers[0]
 
+    for x in numbers:
+        if x not in count:
+            count [x] = 0
+        count [x] += 1
+
+        if count [x] > count [mode]:
+            mode = x
+
+    return mode
+
+# Algorithm implement
+
+def find_mode(numbers):
+    count {}
+    mode = (0,0)
+
+    for x in numbers:
+        if x not in count:
+            count [x] = 0
+        count [x] += 1
+
+        mode = max(mode, (count[x], x))
+
+
+# Examples: Rounds 
+
+# Task 3
+
+# given a list that countains the numbers 1,2,....,n in some order.
+# your task is to collect all the numbers in order, 
+# from smallest to largest so that in each round you go through the list
+# from left to right. How many rounds do you need?
+
+# For example, the list [3,6,1,7,5,2,4,8] requires 4 rounds. 
+# The first round collects the numbers 1 and 2, the second round 
+# the numbers 3 and 4, the third round the number 5, and the fourth round 
+# the numbers 6,7 and 8.
+
+# A useful observation is that a new round starts whenever the number 
+# to be collected next is to the left of the most recently collected 
+# number. In the example list above, the number 
+# starts a new round because it is to the left of the number.
+
+# slow list
+
+def count_rounds(numbers):
+    n = len(numbers)
+
+    rounds = 1
+    for x in range(l, n):
+        if numbers.index(i + 1) < numbers.index(i):
+            rounds += 1
+    return rounds
+
+# Efficient solution(dictionary)
     
+def count_rounds(numbers):
+    n = len(numbers)
+    
+    pos = {}
+    for i, x in enumerate(numbers):
+        pos[x] = i
+
+    rounds = l
+    for i in range(l,n):
+        if pos[i + l] < pos[i]:
+            rounds += 1
+            
+    return rounds
