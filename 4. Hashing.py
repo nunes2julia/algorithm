@@ -240,3 +240,134 @@ def count_rounds(numbers):
             rounds += 1
             
     return rounds
+
+# Example: Play list
+#Task 4
+
+def max_length(songs):
+    n = len(songs)
+
+    pos = {}
+    start = 0
+    length = 0
+
+    for i, song in enumerate(songs):
+        if song in pos:
+            start = max(start, pos[song] + 1)
+        length = max(length, i - start + 1)
+        pos[song] = i
+
+    return length
+
+
+#  Example: List sums
+#Task 5
+
+def count_sublists(numbers, x):
+    count = {0 : 1}
+    prefix_sum = 0 
+    result = 0 
+
+    for i in range(len(numbers)):
+        prefix_sum += numbers[i]
+        if prefix_sum - x in count:
+            result += count[prefix_sum - x]
+
+        if prefix_sum not in count:
+            count[prefix_sum] = 0
+        count[prefix_sum] += 1
+
+    return result
+
+# How does hashing work?
+
+# Which objects can be hashed?
+# The following code does not work in Python:
+
+lists = set()
+lists.add([1, 2, 3]) # TypeError: unhashable type: 'list'
+
+# The problem it that it is nor possible to compute a has value for a list
+
+print(hash([1, 2, 3])) # TypeError: unhashable type 'list'
+
+# tuple of numbers is immutable:
+
+lists = set()
+list["apina"] = [1, 2, 3]
+
+# Hashing for your own class
+
+class Location:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __hash__(self):
+        return hash((self.x, self.y))
+    
+    def __eq__(self, other):
+        return (self.x, self.y) == (other.x, other.y)
+
+# With these definitions, the following code works as expected:
+
+locations = set()
+locations.add(Location(1, 2))
+locations.add(Location(3, -5))
+locations.add(Location(1, 4))
+
+# Hashing in other programming languages
+
+# In C++, the data structures std::unordered_set and std::unordered_map 
+# implement a set and a map using hashing.
+
+std::unordered_set<int> numbers;
+
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+
+std::unordered_map<std::string, int> weights;
+
+weights["apina"] = 100;
+weights["banaani"] = 1;
+weights["cembalo"] = 500;
+
+# In Java, the corresponding data structures are 'HashSet' and 'HasgMap'
+
+HashSet<Integer> numbers = new HashSet<Integer>();
+
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+
+HashMap<String, Integer> weights = new HashMap<String, Integer>();
+
+weights.put("apina" = 100);
+weights.put("banaani" = 1);
+weights.put("cembalo" = 500);
+
+# And in JavaScriptm the data structure 'Set' implements a set:
+
+let numbers = new Set();
+
+numbers.add(1);
+numbers.add(2);
+numbers.add(3);
+
+# The traditional way to create a map in JavaScript is to define an object:
+
+let weights = {}
+
+weights["apina"] = 100;
+weights["banaani"] = 1;
+weights["cembalo"] = 500;
+
+A newer way is to use a separate data structure Map:
+
+let weights = new Map();
+
+weights.set("apina", 100);
+weights.set("banaani", 1);
+weights.set("cembalo", 500);
+
